@@ -1,3 +1,5 @@
+import buildTypes.Pipeline
+import buildTypes.addPipeline
 import jetbrains.buildServer.configs.kotlin.*
 
 /*
@@ -25,4 +27,15 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2023.05"
 
 project {
+    addPipeline(Pipeline(
+        "Calculator Service",
+        "calculator-service",
+        "git@github.com:jetbrains/teamcity-microservices-demo-calculator-service.git"
+    ))
+
+    addPipeline(Pipeline(
+        "Authorization Service",
+        "authorization-service",
+        "git@github.com:jetbrains/teamcity-microservices-demo-authorization-service.git"
+    ))
 }
